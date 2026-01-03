@@ -98,6 +98,11 @@
          this(marca,modelo,color,cilindrada);
          this.capacidadTanque = capacidadTanque;
      }
+
+     public Motocicleta(int capacidadTanque) {
+         this.capacidadTanque = capacidadTanque;
+     }
+
      //Metodo equals
 
      @Override

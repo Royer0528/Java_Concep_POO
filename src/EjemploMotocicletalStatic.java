@@ -1,4 +1,4 @@
-public class EjemploAutomovilStatic {
+public class EjemploMotocicletalStatic {
     public static void main(String[] args) {
 
 

@@ -6,6 +6,8 @@ class Motocicleta {
     private double cilindrada;
     private int capacidadTanque = 40;
 
+    private TipoMotocicleta tipo;
+
     private static Color colorPatente = Color.NARANJO;
     private static int capacidadTanqueEstatico = 30;
     private static int ultimoId;
@@ -101,11 +103,20 @@ class Motocicleta {
         Motocicleta.colorPatente = colorPatente;
     }
 
+    public TipoMotocicleta getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoMotocicleta tipo) {
+        this.tipo = tipo;
+    }
+
     public String detalleMotocicleta() {
         StringBuilder sb = new StringBuilder();
         sb.append("moto.id = " + this.id);
         sb.append("\nmoto.fabricante = " + this.marca);
         sb.append("\nmoto.modelo = " + this.modelo);
+        sb.append("\nmoto.tipo = " + this.getTipo().getModelo());
         sb.append("\nmoto.color = " + this.color.getColor());
         sb.append("\nmoto.cilindrada = " + this.cilindrada);
 

@@ -10,6 +10,13 @@ public class EjemploAutomovilStatic {
 
         Motocicleta.setColorPatente (Color.NARANJO);
 
+        //Utilizando la parametrizacion del atributo tipo, en los objetos ya creados
+        moto.setTipo(TipoMotocicleta.DEPORTIVA);
+        moto2.setTipo(TipoMotocicleta.MOTONETA);
+        moto3.setTipo(TipoMotocicleta.DOBLE_PROPOSITO);
+        moto4.setTipo(TipoMotocicleta.CUSTOM);
+
+
 
         // Metodos llamados del objeto Moto
         System.out.println("Motocicleta.getColoPatente() = " + moto.getColor());
@@ -45,6 +52,10 @@ public class EjemploAutomovilStatic {
 
         System.out.println("Velocidad maxima carretera: " + Motocicleta.VELOCIDAD_MAX_CARRETERA);
         System.out.println("Velocidad maxima ciudad: " + Motocicleta.VELOCIDAD_MAX_CIUDAD);
+
+        TipoMotocicleta tipoMotocicleta = moto.getTipo();
+        System.out.println("tipo moto: " + tipoMotocicleta.getModelo());
+        System.out.println("tipo desc moto: " + tipoMotocicleta.getDescripcion());
     }
 }
 

@@ -3,8 +3,10 @@ class Motocicleta {
     private String marca;
     private String modelo;
     private Color color;
-    private double cilindrada;
-    private int capacidadTanque = 40;
+    private Motor motor;
+    private Tanque tanque;
+    private Persona conductor;
+    private Rueda[] ruedas;
 
     private TipoMotocicleta tipo;
 
@@ -66,14 +68,6 @@ class Motocicleta {
         return color;
     }
 
-    public double getCilindrada() {
-        return cilindrada;
-    }
-
-    public int getCapacidadTanque() {
-        return capacidadTanque;
-    }
-
     // En esta parte observamos el metodo set para asignar valores a los atributos de una clase
     public void setMarca(String marca) {
         this.marca = marca;
@@ -87,12 +81,12 @@ class Motocicleta {
         this.color = color;
     }
 
-    public void setCilindrada(double cilindrada) {
-        this.cilindrada = cilindrada;
+    public void setCilindrada(Motor motor) {
+        this.motor = motor;
     }
 
-    public void setcapacidadTanque(int capacidadTanque) {
-        this.capacidadTanque = capacidadTanque;
+    public void setcapacidadTanque(Tanque tanque) {
+        this.tanque = tanque;
     }
 
     public static Color getColorPatente() {
@@ -118,7 +112,7 @@ class Motocicleta {
         sb.append("\nmoto.modelo = " + this.modelo);
         sb.append("\nmoto.tipo = " + this.getTipo().getModelo());
         sb.append("\nmoto.color = " + this.color.getColor());
-        sb.append("\nmoto.cilindrada = " + this.cilindrada);
+        sb.append("\nmoto.cilindrada = " + motor.getCilindrada());
 
         return sb.toString();
     }
@@ -143,8 +137,8 @@ class Motocicleta {
         return acelerar + "\n" + frenar;
     }
 
-    public double calcularConsumo(int km, float porcentajeCombustible) {
-        return km / (capacidadTanque * porcentajeCombustible / 100f);
+    public double calcularConsumo(int km, float porcentajeCombustible,Tanque tanque) {
+        return km / (tanque.getCapacidad() * porcentajeCombustible / 100f);
     }
 
     public static double calcularConsumoEstatico(int km, int porcentajeCombustible) {
@@ -157,18 +151,18 @@ class Motocicleta {
         this.color = color;
     }
 
-    public Motocicleta(String marca, String modelo, Color color, double cilindrada) {
+    public Motocicleta(String marca, String modelo, Color color, Motor motor) {
         this(marca, modelo, color);
-        this.cilindrada = cilindrada;
+        this.motor = motor;
     }
 
-    public Motocicleta(String marca, String modelo, Color color, double cilindrada, int capacidadTanque) {
-        this(marca, modelo, color, cilindrada);
-        this.capacidadTanque = capacidadTanque;
+    public Motocicleta(String marca, String modelo, Color color,Motor motor,Tanque tanque) {
+        this(marca, modelo, color, motor);
+        this.tanque = tanque;
     }
 
-    public Motocicleta(int capacidadTanque) {
-        this.capacidadTanque = capacidadTanque;
+    public Motocicleta(Tanque tanque) {
+        this.tanque = tanque;
     }
 
     // Metodo equals
@@ -196,10 +190,50 @@ class Motocicleta {
                 ", marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", color='" + color + '\'' +
-                ", cilindrada=" + cilindrada +
-                ", capacidadTanque=" + capacidadTanque +
+                ", cilindrada=" +motor +
+                ", capacidadTanque=" + tanque +
                 '}';
     }
-    //Metodo int
+    //Metodos getter and setter de las clases Persona,Tanque,Rueda, Motor
 
+
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public void setMotor(Motor motor) {
+        this.motor = motor;
+    }
+
+    public Tanque getTanque() {
+        return tanque;
+    }
+
+    public void setTanque(Tanque tanque) {
+        this.tanque = tanque;
+    }
+
+    public Persona getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Persona conductor) {
+        this.conductor = conductor;
+    }
+
+    public Rueda[] getRuedas() {
+        return ruedas;
+    }
+
+    public void setRuedas(Rueda[] ruedas) {
+        this.ruedas = ruedas;
+    }
+
+    //Creando constructor para inicializar
+
+    public Motocicleta(String marca, String modelo, Color color, Motor motor, Tanque tanque, Persona conductor, Rueda[] ruedas) {
+        this(marca,modelo,color,motor,tanque);
+        this.conductor = conductor;
+        this.ruedas = ruedas;
+    }
 }
